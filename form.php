@@ -1,31 +1,26 @@
-<!DOCTYPE html>
 
 <html>
-
 <head>
-    <title>e-mail</title>
-
-    <meta charset="utf-8" />
-
+    <title>..</title>
 </head>
-
 <body>
-<h2>Contact Form</h2>
-<form class="form">
-    <p class="e-mail">
-        <input type="text" name="e-mail" id="e-mail" placeholder="mail@example.com" />
-        <label for="e-mail">e-mail</label>
-    </p>
+<?php
+if(isset($_GET['email'])&& !empty($_GET['email'])){
+    if(filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)) {
+        echo 'Dit e-mail adres is geldig';
+    }
+    else{
+        echo 'ongeldige e-mail, probeer het opnieuw';
+    }
+}
+else{
+    echo'Vul jouw e-mail in';
+}
 
-
-
-
-
-    <p class="submit">
-        <input type="submit" value="versturen" />
-    </p>
+?>
+<form action="" method="get">
+    email: <input type="text" name="email"/>
+    <input type="submit" value="submit"/>
 </form>
-
 </body>
-
 </html>
